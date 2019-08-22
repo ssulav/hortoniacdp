@@ -1,0 +1,22 @@
+select * from consent_master.consent_data_trans where marketingconsent='YES' and country='FR'
+SELECT count(*) FROM hortoniabank.ww_customers
+SELECT count(*) FROM hortoniabank.ww_customers where country in (select countrycode from hortoniabank.eu_countries) and insuranceid in (select insuranceid from consent_master.consent_data_trans where (marketingconsent = 'YES' and current_date < date_add(marketingconsentstartdate, 365)))
+SELECT surname, streetaddress, country, age, password, nationalid, ccnumber, mrn, birthday FROM hortoniabank.ww_customers_trans
+SELECT surname, streetaddress, country, age, password, nationalid, insuranceid, ccnumber, mrn, birthday FROM hortoniabank.ww_customers where insuranceid in ('23182722','62517316')
+select country, insuranceid, marketingconsent from consent_master.consent_data_trans where insuranceid='62517316'
+update consent_master.consent_data_trans set marketingconsent='NO' where insuranceid='62517316'
+select insuranceid,marketingconsent from consent_master.consent_data_trans where insuranceid='62517316'
+describe formatted consent_master.consent_data_trans
+select * from erasure_master.data_erasure_trans limit 15
+select count(*) from hortoniabank.ww_customers_trans w, erasure_master.data_erasure_trans e where e.insuranceid = w.insuranceid and e.rtbfrequested = 'YES' and e.erasureoverride='NO' 
+delete from hortoniabank.ww_customers_trans where insuranceid in (select w.insuranceid from hortoniabank.ww_customers_trans w, erasure_master.data_erasure_trans e where ((e.insuranceid = w.insuranceid) and (e.rtbfrequested = 'YES') and (e.erasureoverride='NO'))) 
+SELECT count(*) FROM hortoniabank.ww_customers_trans
+describe formatted hortoniabank.ww_customers_trans
+select * from information_schema.table_privileges where table_name='uk_employees'
+select * from hr.uk_employees limit 5
+select * from hr.uk_employees limit 5
+update consent_master.consent_data_trans set marketingconsent='YES' where insuranceid='62517316'
+drop table hortoniabank.ww_customers_trans
+CREATE TABLE IF NOT EXISTS hortoniabank.ww_customers_trans( Gender STRING , Title STRING , GivenName STRING , MiddleInitial STRING , Surname STRING , Number INT , NameSet STRING , StreetAddress STRING , City STRING , State STRING , StateFull STRING , ZipCode STRING , Country STRING , CountryFull STRING , EmailAddress STRING , Username STRING , Password STRING , TelephoneNumber STRING , TelephoneCountryCode INT , MothersMaiden STRING , Birthday STRING , Age INT , TropicalZodiac STRING , CCType STRING , CCNumber STRING , CVV2 STRING , CCExpires STRING , NationalID STRING , MRN STRING , InsuranceID STRING , EyeColor STRING , Occupation STRING , Company STRING , Vehicle STRING , Domain STRING , BloodType STRING , Weight DOUBLE , Height INT , Latitude DOUBLE , Longitude DOUBLE ) CLUSTERED BY(Gender) INTO 2 BUCKETS STORED AS ORC LOCATION '/hive_data/hortoniabank/ww_customers_trans' TBLPROPERTIES ('transactional'='true') 
+insert into hortoniabank.ww_customers_trans select * from hortoniabank.ww_customers 
+select count(*) from hortoniabank.ww_customers_trans

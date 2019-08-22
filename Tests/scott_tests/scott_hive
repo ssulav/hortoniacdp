@@ -1,0 +1,2 @@
+select * from hr.employees_encrypted
+select * from hr.employees limit 10

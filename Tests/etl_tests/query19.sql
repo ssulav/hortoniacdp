@@ -1,0 +1,1 @@
+drop table hortoniabank.ww_customers_trans

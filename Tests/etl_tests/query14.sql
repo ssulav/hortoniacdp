@@ -1,0 +1,1 @@
+describe formatted hortoniabank.ww_customers_trans

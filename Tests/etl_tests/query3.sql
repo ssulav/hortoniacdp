@@ -1,0 +1,1 @@
+SELECT count(*) FROM hortoniabank.ww_customers where country in (select countrycode from hortoniabank.eu_countries) and insuranceid in (select insuranceid from consent_master.consent_data_trans where (marketingconsent = 'YES' and current_date < date_add(marketingconsentstartdate, 365)))

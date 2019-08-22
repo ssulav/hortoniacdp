@@ -1,0 +1,9 @@
+kinit -kt /etc/security/keytabs/ivanna_eu_hr.keytab ivanna_eu_hr/$(hostname -f)@HWX.COM; 
+
+echo \"***Attempting to access T_FOREX as Ivanna***...\" echo \"scan 'T_FOREX'\" | hbase shell  echo \"****Attempting to access T_PRIVATE as Ivanna***...\" echo \"scan 'T_PRIVATE'\" | hbase shell
+
+kinit -kt /etc/security/keytabs/ivanna_eu_hr.keytab ivanna_eu_hr/$(hostname -f)@HWX.COM 
+echo \"***Attempting to access FOREX topic as Ivanna***...\" /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $(hostname -f):6667 --consumer-property security.protocol=SASL_PLAINTEXT --topic FOREX --from-beginning --max-messages 3  echo \"***Attempting to access PRIVATE topic as Ivanna***...\" /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $(hostname -f):6667 --consumer-property security.protocol=SASL_PLAINTEXT --topic PRIVATE --from-beginning --max-messages 3 
+
+kinit -kt /etc/security/keytabs/ivanna_eu_hr.keytab ivanna_eu_hr/$(hostname -f)@HWX.COM 
+hdfs dfs -cat /sensitive/private.csv

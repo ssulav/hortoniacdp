@@ -1,0 +1,11 @@
+select * from hortoniabank.us_customers limit 10
+select * from (select countryfull, count(*) num_customers from hortoniabank.ww_customers group by countryfull) s order by num_customers desc limit 5
+select distinct(country) from hortoniabank.ww_customers
+SELECT surname, streetaddress, country, age, password, nationalid, ccnumber, mrn, birthday FROM hortoniabank.ww_customers LIMIT 50
+SELECT count(*) FROM hortoniabank.ww_customers
+SELECT insuranceid, surname, streetaddress, country, age FROM hortoniabank.ww_customers where insuranceid='23182722'
+SELECT insuranceid, surname, streetaddress, country, age FROM hortoniabank.ww_customers where insuranceid='62517316'
+SELECT surname, streetaddress, country, age, password, nationalid, ccnumber, mrn, birthday FROM hortoniabank.ww_customers
+update consent_master.consent_data_trans set loyaltyconsent='NO' where insuranceid='57155949'
+select * from cost_savings.claim_savings limit 5
+select * from hr.employees_encrypted

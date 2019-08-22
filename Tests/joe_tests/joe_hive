@@ -1,0 +1,13 @@
+select lpad(zipcode,5,"0"), avg((weight*4500/(height*height))) as bmi from hortoniabank.us_customers group by lpad(zipcode,5,"0") 
+select * from (select state, avg((weight*4500/(height*height))) as bmi from hortoniabank.us_customers group by state) s order by bmi desc limit 5
+SELECT surname, streetaddress, country, age, password, nationalid, ccnumber, mrn, birthday FROM hortoniabank.us_customers LIMIT 50
+select zipcode, insuranceid, bloodtype from hortoniabank.ww_customers limit 10
+select zipcode, bloodtype from hortoniabank.ww_customers limit 10
+select fed_tax from finance.tax_2015
+select ssn from finance.tax_2015
+select state_tax from finance.tax_2015
+select * from cost_savings.claim_savings limit 5
+select * from hr.employees_encrypted
+select * from information_schema.table_privileges where table_name='uk_employees'
+select * from hr.uk_employees limit 5
+select * from hr.uk_employees limit 5

@@ -1,0 +1,1 @@
+delete from hortoniabank.ww_customers_trans where insuranceid in (select w.insuranceid from hortoniabank.ww_customers_trans w, erasure_master.data_erasure_trans e where ((e.insuranceid = w.insuranceid) and (e.rtbfrequested = 'YES') and (e.erasureoverride='NO')))
