@@ -1,5 +1,9 @@
 source config.ini
 
+echo "***********************************************"
+echo "Running ${SCRIPTS_DIR}/08-create-hbase-kafka.sh"
+echo "***********************************************"
+
 echo "Creating Hbase tables..."
 
 cat << EOF > /tmp/hbase.sh

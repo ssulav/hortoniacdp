@@ -1,4 +1,7 @@
 source config.ini
+echo "***********************************************"
+echo "Running ${SCRIPTS_DIR}/03-update-ranger-servicedefs.sh"
+echo "***********************************************"
 
 outputFileName="${DATA_DIR}/ranger-servicedef-hive.3.0.json+"
 serviceType="hive"
@@ -7,7 +10,7 @@ ret=$?
 
 if [ $ret == 0 ]
 then
-  echo ${output} | ${JSON_FORMATTER} > ${outputFileName}
+  echo "${output}" | ${JSON_FORMATTER} > ${outputFileName}
   echo "${serviceType}: service-def saved to ${outputFileName}"
 else
   echo "failed with error code: ${ret}"
@@ -20,14 +23,14 @@ ret=$?
 
 if [ $ret == 0 ]
 then
-  echo ${output} | ${JSON_FORMATTER} > ${outputFileName}
+  echo "${output}" | ${JSON_FORMATTER} > ${outputFileName}
   echo "${serviceType}: service-def saved to ${outputFileName}"
 else
   echo "failed with error code: ${ret}"
 fi
 
 #Updating servicedef hive
-inputFileName="${SCRIPT_DIR}/hive.json"
+inputFileName="${DATA_DIR}/hive.json"
 ${CURL_RANGER} ${RANGER_SERVICEDEF_API}/hive \
   | jq '.options = {"enableDenyAndExceptionsInPolicies":"true"}' \
   | jq '.policyConditions = [
@@ -51,5 +54,5 @@ ${CURL_RANGER} ${RANGER_SERVICEDEF_API}/hive \
 output=`${CURL_RANGER} -X PUT -H "Accept: application/json" -H "Content-Type: application/json" -d @"${inputFileName}" "${RANGER_SERVICEDEF_API}/hive"`
 ret=$?
 
-print_response ${ret} ${inputFileName} "${RANGER_SERVICEDEF_API}/hive" ${output}
+print_response ${ret} ${inputFileName} "${RANGER_SERVICEDEF_API}/hive" "${output}"
 

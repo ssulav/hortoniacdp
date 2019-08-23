@@ -34,7 +34,7 @@ ret=$?
 
 if [ $ret == 0 ]
 then
-  echo ${output} | ${JSON_FORMATTER} > ${outputFileName}
+  echo "${output}" | ${JSON_FORMATTER} > ${outputFileName}
   echo "${serviceType}: service-def saved to ${outputFileName}"
 else
   echo "failed with error code: ${ret}"

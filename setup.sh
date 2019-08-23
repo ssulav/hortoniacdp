@@ -10,18 +10,18 @@ yum -y -q install git epel-release screen mysql-connector-java postgresql-jdbc p
 ${SCRIPTS_DIR}/03-update-ranger-servicedefs.sh
 ${SCRIPTS_DIR}/03-update-ranger-policies.sh
 
-${SCRIPTS_DIR}/05-create-hdfs-user-folders.sh
+#${SCRIPTS_DIR}/05-create-hdfs-user-folders.sh
 ${SCRIPTS_DIR}/06-copy-data-to-hdfs.sh
 
 ${SCRIPTS_DIR}/07-create-hive-schema.sh  
 
-${SCRIPTS_DIR}/08-create-hbase-kafka.sh
+#${SCRIPTS_DIR}/08-create-hbase-kafka.sh
 
 ${SCRIPTS_DIR}/01-atlas-import-classification.sh 
 
 ${SCRIPTS_DIR}/09-associate-entities-with-tags.sh
 
-if FALSE; then
+if [ false ]; then
 echo "Change Hive doAs setting" #DoAs to TRUE
 /var/lib/ambari-server/resources/scripts/configs.py -u ${ambari_admin} -p ${ambari_pass} --host ${ambari_host} --port 8080 --cluster ${cluster_name} -a set -c hive-site -k hive.server2.enable.doAs  -v true
 if [ "${enable_hive_acid}" = true  ]; then

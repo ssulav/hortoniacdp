@@ -1,3 +1,8 @@
+
+echo "***********************************************"
+echo "Running ${SCRIPTS_DIR}/04-create-os-users.sh"
+echo "***********************************************"
+
 groupadd finance
 groupadd business_dev
 groupadd contractor

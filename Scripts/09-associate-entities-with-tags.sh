@@ -1,5 +1,9 @@
 source config.ini
 
+echo "***********************************************"
+echo "Running ${SCRIPTS_DIR}/09-associate-entities-with-tags.sh"
+echo "***********************************************"
+
 ##Tagging Hive Tables
 
 #fetch guid for table hortoniabank.eu_countries@${CLUSTER_NAME}

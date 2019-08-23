@@ -1,5 +1,9 @@
 source config.ini
 
+echo "***********************************************"
+echo "Running ${SCRIPTS_DIR}/05-create-hdfs-user-folders.sh"
+echo "***********************************************"
+
 hadoop fs -mkdir /user/admin
 hadoop fs -chown admin:hadoop /user/admin
 hadoop fs -mkdir /user/joe_analyst

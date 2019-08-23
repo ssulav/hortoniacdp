@@ -1,7 +1,11 @@
 source config.ini
 
+echo "***********************************************"
+echo "Running ${SCRIPTS_DIR}/06-copy-data-to-hdfs.sh"
+echo "***********************************************"
+
 echo "Making data dir under ${SFS_URL}/hive_data"
-hdfs dfs -mkdir -p ${SFS_URL}/hive_data/claim			2>/dev/null/
+hdfs dfs -mkdir -p ${SFS_URL}/hive_data/claim			2>/dev/null
 hdfs dfs -mkdir -p ${SFS_URL}/hive_data/cost_savings/		2>/dev/null
 hdfs dfs -mkdir -p ${SFS_URL}/hive_data/finance/tax_2009/	2>/dev/null
 hdfs dfs -mkdir -p ${SFS_URL}/hive_data/finance/tax_2010/	2>/dev/null

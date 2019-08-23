@@ -40,7 +40,7 @@ ret=$?
 
 if [ $ret == 0 ]
 then
-  echo ${output} | ${JSON_FORMATTER}
+  echo "${output}" | ${JSON_FORMATTER}
 else
   echo "failed with error code: ${ret}"
 fi
