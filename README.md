@@ -24,10 +24,9 @@ How to quickly setup HDP Security/Governance/GDPR (HortoniaBank) demo for second
 - Row level filtering on co-mingled datasets in Hive
 - Dynamic tag based masking in Hive columns
 - Time bound Ranger policies
-- Hive HDF execution authorization
 - Classifications (tags) in Atlas
 - Tag propagation
-- Data lineage in Atlas for HDFS, Hive, NiFi, Hbase
+- Data lineage in Atlas for HDFS, Hive, Hbase
 - GDPR Scenarios around consent and data erasure
 
 ## Do below steps to setup HortoniaBank tests for Ranger/Atlas :
